@@ -1,4 +1,5 @@
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -35,10 +36,10 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-white/80">
-              <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#features" className="hover:text-primary transition-colors">Features</a></li>
-              <li><a href="#developers" className="hover:text-primary transition-colors">Developers</a></li>
-              <li><a href="#testimonials" className="hover:text-primary transition-colors">Success Stories</a></li>
+              <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/features" className="hover:text-primary transition-colors">Features</Link></li>
+              <li><Link to="/developers" className="hover:text-primary transition-colors">Developers</Link></li>
+              <li><Link to="/stories" className="hover:text-primary transition-colors">Success Stories</Link></li>
             </ul>
           </div>
 
@@ -48,7 +49,7 @@ const Footer = () => {
             <ul className="space-y-2 text-white/80">
               <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Documentation</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Support</a></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Support</Link></li>
               <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
             </ul>
           </div>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +41,7 @@ const Navbar = () => {
             <Button variant="ghost" onClick={() => scrollToSection("contact")}>
               Contact
             </Button>
+            <ThemeToggle />
             <Button 
               className="ml-4 bg-primary hover:bg-primary/90"
               onClick={() => scrollToSection("signup")}
@@ -80,6 +82,10 @@ const Navbar = () => {
               <Button variant="ghost" className="justify-start" onClick={() => scrollToSection("contact")}>
                 Contact
               </Button>
+              <div className="flex items-center justify-start px-3 py-2">
+                <span className="mr-3 text-sm font-medium">Theme:</span>
+                <ThemeToggle />
+              </div>
               <Button 
                 className="bg-primary hover:bg-primary/90 justify-start"
                 onClick={() => scrollToSection("signup")}

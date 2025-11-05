@@ -58,17 +58,19 @@ const testimonials = [
 ];
 
 const TestimonialCarousel = () => {
+  const autoplayPlugin = Autoplay({
+    delay: 3000,
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+  });
+
   return (
     <Carousel
       opts={{
         align: "start",
         loop: true,
       }}
-      plugins={[
-        Autoplay({
-          delay: 5000,
-        }),
-      ]}
+      plugins={[autoplayPlugin]}
       className="w-full max-w-5xl mx-auto"
     >
       <CarouselContent>

@@ -6,8 +6,8 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // ---------- Base path for GitHub Pages ----------
-  // Change "code-africa-launchpad" to your repo name
-  base: mode === "production" ? "/code-africa-launchpad/" : "/",
+  // Change "SS-org-website" to your repo name
+  base: mode === "production" ? "/SS-org-website/" : "/",
 
   server: {
     host: "::",

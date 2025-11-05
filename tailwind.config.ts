@@ -55,6 +55,7 @@ export default {
         'gradient-sunrise': 'var(--gradient-sunrise)',
         'gradient-professional': 'var(--gradient-professional)',
         'gradient-success': 'var(--gradient-success)',
+        'gradient-vibrant': 'var(--gradient-vibrant)',
       },
       boxShadow: {
         'sm': 'var(--shadow-sm)',
@@ -62,6 +63,8 @@ export default {
         'lg': 'var(--shadow-lg)',
         'xl': 'var(--shadow-xl)',
         'glow': 'var(--shadow-glow)',
+        'glow-secondary': 'var(--shadow-glow-secondary)',
+        'glow-accent': 'var(--shadow-glow-accent)',
       },
       transitionProperty: {
         'base': 'var(--transition-base)',

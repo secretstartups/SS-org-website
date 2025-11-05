@@ -5,14 +5,33 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // ---------- Base path for GitHub Pages ----------
+  // Change "code-africa-launchpad" to your repo name
+  base: mode === "production" ? "/code-africa-launchpad/" : "/",
+
   server: {
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+
+  plugins: [
+    react(),
+    // componentTagger only in dev
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+
+  // ---------- OPTIONAL: nicer build output ----------
+  build: {
+    outDir: "dist",          // default, but explicit is fine
+    sourcemap: false,        // keep false for prod
+    rollupOptions: {
+      // (optional) silence warnings about large chunks
     },
   },
 }));

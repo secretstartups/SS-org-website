@@ -1,21 +1,41 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show navbar after scrolling 100px on homepage, always show on other pages
+      if (location.pathname === "/") {
+        setIsVisible(window.scrollY > 100);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    handleScroll(); // Check initial state
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold bg-gradient-sunrise bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-professional bg-clip-text text-transparent">
               Secret Startups
             </Link>
           </div>

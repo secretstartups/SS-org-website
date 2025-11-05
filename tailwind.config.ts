@@ -52,9 +52,8 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-sunrise': 'var(--gradient-sunrise)',
         'gradient-professional': 'var(--gradient-professional)',
-        'gradient-success': 'var(--gradient-success)',
+        'gradient-subtle': 'var(--gradient-subtle)',
       },
       boxShadow: {
         'sm': 'var(--shadow-sm)',

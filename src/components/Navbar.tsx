@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold bg-gradient-sunrise bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-professional bg-clip-text text-transparent">
               Secret Startups
             </Link>
           </div>

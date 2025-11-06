@@ -18,18 +18,18 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!email || !message) {
+
+    if (!email.trim() || !message.trim()) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all fields",
+        title: "Missing fields",
+        description: "Please enter your email and message.",
         variant: "destructive",
       });
       return;
     }
 
     toast({
-      title: "Message Sent!",
+      title: "Message sent!",
       description: "We'll get back to you within 24 hours.",
     });
 
@@ -40,48 +40,48 @@ const Contact = () => {
   const faqs = [
     {
       question: "Is Secret Startups really free to join?",
-      answer: "Yes! Joining Secret Startups is completely free. You get instant access to our community, learning resources, and job board. Some premium courses and services may have fees, but the core platform is free.",
+      answer:
+        "Yes! Joining is completely free. You get instant access to our community, learning resources, and job board. Some premium courses may have fees, but the core platform is free.",
     },
     {
       question: "Do I need prior experience to join?",
-      answer: "Not at all! We welcome developers at all levels, from complete beginners to experienced professionals. We have learning paths and opportunities tailored to your experience level.",
+      answer:
+        "No experience needed. We support developers at all levels — from beginners to experts — with tailored learning paths and opportunities.",
     },
     {
       question: "How do apprenticeships work?",
-      answer: "Our paid apprenticeships connect you with companies looking for talent. You'll work on real projects, earn money, and gain valuable experience. Companies cover your compensation through our platform.",
+      answer:
+        "Our paid apprenticeships connect you with real companies. You work on live projects, earn competitive wages, and gain experience. Companies pay through our platform.",
     },
     {
       question: "Can I access the platform from anywhere in Africa?",
-      answer: "Yes! Secret Startups is available to developers across the entire African continent. We have members in over 40 African countries.",
+      answer:
+        "Yes! We serve developers across all African countries. We have members in over 40 nations and growing.",
     },
   ];
 
   return (
-    <section id="contact" className="py-24 bg-muted/30">
+    <section id="contact" className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Get in <span className="bg-gradient-sunrise bg-clip-text text-transparent">Touch</span>
-          </h2>
-          <p className="text-xl text-muted-foreground">
-            Have questions? We're here to help you get started
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid gap-10 lg:gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <div className="animate-fade-in">
-            <div className="bg-card p-8 rounded-2xl shadow-lg border-2 border-border">
+          <div className="order-2 lg:order-1">
+            <div className="bg-card rounded-2xl shadow-lg border p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-sunrise flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <MessageSquare className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold">Send us a message</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                  Send a Message
+                </h3>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="contact-email" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="contact-email"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Your Email
                   </label>
                   <Input
@@ -96,7 +96,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Message
                   </label>
                   <Textarea
@@ -109,44 +112,43 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full h-12 bg-primary hover:bg-primary/90"
+                <Button
+                  type="submit"
+                  className="w-full h-12 bg-primary hover:bg-primary/90 text-lg font-medium"
                 >
                   Send Message
                 </Button>
               </form>
 
-              <div className="mt-8 pt-8 border-t border-border">
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Mail className="w-5 h-5" />
-                  <span>support@secretstartups.com</span>
-                </div>
+              <div className="mt-7 pt-7 border-t border-border flex items-center gap-3 text-muted-foreground text-sm">
+                <Mail className="w-4 h-4" />
+                <span>support@secretstartups.com</span>
               </div>
             </div>
           </div>
 
           {/* FAQs */}
-          <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <div className="order-1 lg:order-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-professional flex items-center justify-center">
-                <HelpCircle className="w-6 h-6 text-white" />
+              <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center">
+                <HelpCircle className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold">Frequently Asked Questions</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                Frequently Asked Questions
+              </h3>
             </div>
 
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="bg-card border-2 border-border rounded-xl px-6 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqs.map((faq, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`item-${i}`}
+                  className="bg-card border rounded-lg px-5"
                 >
-                  <AccordionTrigger className="text-left font-semibold hover:text-primary">
+                  <AccordionTrigger className="text-left text-base font-medium hover:text-primary py-3">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                  <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-3">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

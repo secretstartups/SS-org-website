@@ -9,44 +9,62 @@ const FeaturesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+
       <div className="pt-16">
-        {/* Page Header */}
-        <section className="py-16 bg-muted/30">
+        {/* Hero Header */}
+        <header className="py-20 bg-muted/30">
           <div className="container mx-auto px-4 lg:px-8 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Our <span className="bg-gradient-sunrise bg-clip-text text-transparent">Features</span>
+            <h1 className="text-4xl 4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-5">
+              Powerful Features
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Everything you need to accelerate your career and entrepreneurial journey in one powerful platform
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Everything you need to land apprenticeships, learn in-demand skills, and connect with startups — all in one place.
             </p>
+          </div>
+        </header>
+
+        {/* Main Features Section */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4 lg:px-8">
+            <Features />
           </div>
         </section>
 
-        <Features />
-        
         {/* CTA Section */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-4 lg:px-8 text-center">
-            <h3 className="text-3xl font-bold mb-6">Experience These Features Today</h3>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Get instant access to apprenticeships, education, community, and resources
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-5">
+              Start Building Your Future
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+              Join thousands of developers already growing with Secret Startups — no credit card required.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/developers">
-                <Button size="lg" variant="outline" className="text-lg px-8 h-14">
-                  Meet Our Developers
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link to="/developers" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full px-8 h-14 text-lg font-medium border-muted-foreground/30 hover:bg-accent/10"
+                >
+                  Meet the Community
                 </Button>
               </Link>
-              <a href="/#signup">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 h-14">
+
+              <a href="/#signup" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="w-full bg-primary hover:bg-primary/90 px-8 h-14 text-lg font-medium flex items-center justify-center gap-2"
+                >
                   Get Started Free
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
             </div>
           </div>
         </section>
       </div>
+
       <Footer />
     </div>
   );

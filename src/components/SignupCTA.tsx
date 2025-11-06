@@ -11,107 +11,126 @@ const SignupCTA = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!email || !name) {
+
+    if (!name.trim() || !email.trim()) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all fields",
+        title: "Missing information",
+        description: "Please enter your name and email.",
         variant: "destructive",
       });
       return;
     }
 
     toast({
-      title: "Welcome to Secret Startups! 🎉",
-      description: "Check your email for next steps to get started.",
+      title: "Welcome aboard!",
+      description: "Check your email for next steps.",
     });
 
-    setEmail("");
     setName("");
+    setEmail("");
   };
 
   const benefits = [
-    "Access to exclusive apprenticeships",
-    "Free learning resources and courses",
+    "Exclusive startup apprenticeships",
+    "Free courses & learning resources",
     "Connect with mentors and peers",
-    "Early access to startup opportunities",
+    "Early access to hidden opportunities",
   ];
 
   return (
-    <section id="signup" className="py-24 bg-gradient-professional relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-white mb-6">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">Join 10,000+ Developers</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Career?
-            </h2>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
-              Join Secret Startups today and unlock access to opportunities, education, and a community that will accelerate your growth.
-            </p>
+    <section
+      id="signup"
+      className="py-20 bg-background"
+      aria-labelledby="signup-heading"
+    >
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full">
+            <Sparkles className="w-4 h-4" />
+            Join 10,000+ developers
           </div>
 
-          <div className="bg-card rounded-3xl shadow-2xl p-8 md:p-12 animate-scale-in">
-            <form onSubmit={handleSubmit} className="space-y-6 mb-8">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Full Name
-                </label>
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder="Enter your full name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="h-12 text-lg"
-                  required
-                />
+          {/* Heading */}
+          <h2
+            id="signup-heading"
+            className="text-4xl md:text-5xl font-bold text-foreground mb-4"
+          >
+            Ready to Level Up?
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            Get instant access to apprenticeships, mentorship, and exclusive startup opportunities — all for free.
+          </p>
+
+          {/* Form Card */}
+          <div className="bg-card rounded-2xl shadow-lg p-8 md:p-12 border">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Full Name
+                  </label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Jane Doe"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="h-12"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    Email Address
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="jane@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="h-12"
+                    required
+                  />
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email Address
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 text-lg"
-                  required
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full h-14 text-lg bg-primary hover:bg-primary/90 shadow-lg"
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full h-14 text-lg font-medium bg-primary hover:bg-primary/90"
               >
                 Get Started Free
               </Button>
             </form>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {benefits.map((benefit, index) => (
-                <div 
-                  key={benefit} 
-                  className="flex items-start gap-3 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+            {/* Benefits */}
+            <div className="mt-10 grid sm:grid-cols-2 gap-4 text-left">
+              {benefits.map((benefit, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-3 text-muted-foreground"
                 >
-                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">{benefit}</span>
+                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-sm">{benefit}</span>
                 </div>
               ))}
             </div>
+
+            {/* Legal */}
+            <p className="mt-8 text-xs text-muted-foreground text-center">
+              By signing up, you agree to our{" "}
+              <a href="#" className="underline hover:text-foreground">
+                Terms
+              </a>{" "}
+              and{" "}
+              <a href="#" className="underline hover:text-foreground">
+                Privacy Policy
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>

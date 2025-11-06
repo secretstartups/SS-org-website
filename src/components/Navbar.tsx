@@ -58,6 +58,14 @@ const Navbar = () => {
                 Features
               </Button>
             </Link>
+            <Link to="/events">
+              <Button 
+                variant="ghost"
+                className={isActive("/events") ? "bg-muted" : ""}
+              >
+                Events
+              </Button>
+            </Link>
             <Link to="/developers">
               <Button 
                 variant="ghost"
@@ -72,6 +80,14 @@ const Navbar = () => {
                 className={isActive("/stories") ? "bg-muted" : ""}
               >
                 Stories
+              </Button>
+            </Link>
+            <Link to="/partner">
+              <Button 
+                variant="ghost"
+                className={isActive("/partner") ? "bg-muted" : ""}
+              >
+                Partner
               </Button>
             </Link>
             <Link to="/contact">
@@ -123,6 +139,14 @@ const Navbar = () => {
                   Features
                 </Button>
               </Link>
+              <Link to="/events" onClick={() => setIsOpen(false)}>
+                <Button 
+                  variant="ghost" 
+                  className={`justify-start w-full ${isActive("/events") ? "bg-muted" : ""}`}
+                >
+                  Events
+                </Button>
+              </Link>
               <Link to="/developers" onClick={() => setIsOpen(false)}>
                 <Button 
                   variant="ghost" 
@@ -137,6 +161,14 @@ const Navbar = () => {
                   className={`justify-start w-full ${isActive("/stories") ? "bg-muted" : ""}`}
                 >
                   Stories
+                </Button>
+              </Link>
+              <Link to="/partner" onClick={() => setIsOpen(false)}>
+                <Button 
+                  variant="ghost" 
+                  className={`justify-start w-full ${isActive("/partner") ? "bg-muted" : ""}`}
+                >
+                  Partner
                 </Button>
               </Link>
               <Link to="/contact" onClick={() => setIsOpen(false)}>
